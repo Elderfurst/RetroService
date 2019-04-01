@@ -17,7 +17,7 @@ namespace RetroService.Controllers
             _service = service;
         }
 
-        // GET: api/Board/5
+        // GET: api/Board/39b67475-53f4-4e91-a1bf-9074e6f98f82
         [HttpGet("{guid}")]
         public async Task<ActionResult<Board>> Get(Guid guid)
         {
