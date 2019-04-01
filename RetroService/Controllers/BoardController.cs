@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using RetroService.Models;
 using RetroService.Services.Interfaces;
@@ -17,10 +18,10 @@ namespace RetroService.Controllers
         }
 
         // GET: api/Board/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<Board>> Get(int id)
+        [HttpGet("{guid}")]
+        public async Task<ActionResult<Board>> Get(Guid guid)
         {
-            var board = await _service.GetBoard(id);
+            var board = await _service.GetBoard(guid);
 
             if (board == null)
             {
@@ -34,7 +35,8 @@ namespace RetroService.Controllers
         [HttpPost]
         public async Task<ActionResult<Board>> Post([FromBody] Board board)
         {
-            return await _service.CreateBoard(board);
+            var newBoard = await _service.CreateBoard(board);
+            return Created("/api/board/" + newBoard.Id, newBoard);
         }
     }
 }

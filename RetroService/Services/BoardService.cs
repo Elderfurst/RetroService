@@ -2,6 +2,7 @@
 using RetroService.Data;
 using RetroService.Models;
 using RetroService.Services.Interfaces;
+using System;
 using System.Threading.Tasks;
 
 namespace RetroService.Services
@@ -14,7 +15,7 @@ namespace RetroService.Services
         {
             _context = context;
         }
-        public async Task<Board> GetBoard(int boardId)
+        public async Task<Board> GetBoard(Guid boardId)
         {
             return await _context.Boards.FirstOrDefaultAsync(x => x.Id == boardId);
         }

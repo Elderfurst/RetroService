@@ -6,6 +6,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20190401183448_changeIdToGuid.cs" />
+    <Compile Remove="Migrations\20190401183448_changeIdToGuid.Designer.cs" />
+    <Compile Remove="Migrations\20190401184534_test.cs" />
+    <Compile Remove="Migrations\20190401184534_test.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.2.3" />
